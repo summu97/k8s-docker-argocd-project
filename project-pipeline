@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                git 'https://github.com/summu97/netflix-webapp-code.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('package') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('docker build') {
+            steps {
+                sh 'docker build -t img:v$BUILD_NUMBER .'
+            }
+        }
+        stage('login') {
+            steps{
+                sh 'docker login -u summu97 -p $password'
+            }
+        }
+        stage('tag') {
+            steps{
+                sh 'docker tag img:v$BUILD_NUMBER summu97/img:v$BUILD_NUMBER'
+            }
+        }
+        stage('push') {
+            steps{
+                sh 'docker push summu97/img:v$BUILD_NUMBER'
+            }
+        }
+    }
+}
