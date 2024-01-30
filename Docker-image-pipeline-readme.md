@@ -1,5 +1,5 @@
 stage-1:
-checkpout-getting the files from GitHub.
+checkout-getting the files from GitHub.
 
 stage-2, 3, 4:
 build, test, and create packages.
