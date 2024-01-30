@@ -12,4 +12,4 @@ RUN sed -i '22d'  apache-tomcat-9.0.83/webapps/manager/META-INF/context.xml
 RUN mv ./apache-tomcat-9.0.83 ./usr/local/
 CMD ["./usr/local/apache-tomcat-9.0.83/bin/catalina.sh", "run"]
 COPY /target/NETFLIX-1.2.2.war ./usr/local/apache-tomcat-9.0.83/webapps
-  
+EXPOSE 8080  
