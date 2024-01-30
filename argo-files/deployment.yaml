@@ -28,4 +28,4 @@ spec:
     app: tomcat
   ports:
     - port: 8080
-      targetPort: 8080
+      targetPort: 8090
