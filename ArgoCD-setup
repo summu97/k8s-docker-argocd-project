@@ -6,10 +6,19 @@ install argoCD:
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
+To check if argocd pods are created
 kubectl get po -n argocd
+
 kubectl get svc -n argocd
+
 kubectl edit svc argocd-server -n argocd
+
 kubectl get svc -n argocd
+
 kubectl get secret -n argocd
+
+copy the secret from file
 kubectl edit secret argocd-initial-admin-secret -n argocd
-echo QUM5RXYxLTNtWGVVZ2wtVQ== | base64 --decode
+
+decoding the password
+echo paste_pswd | base64 --decode
