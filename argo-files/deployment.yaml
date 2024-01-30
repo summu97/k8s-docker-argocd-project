@@ -13,7 +13,7 @@ spec:
         app: tomcat
     spec:
       containers:
-      - image: summu97/img:v3
+      - image: summu97/img:v23
         name: tomcat
         ports:
         - containerPort: 8080
