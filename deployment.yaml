@@ -14,7 +14,7 @@ spec:
         app: tomcat
     spec:
       containers:
-      - image: summu97/img:replaceImageTag
+      - image: summu97/img:${BUILD_NUMBER}
         name: tomcat
         ports:
         - containerPort: 80
